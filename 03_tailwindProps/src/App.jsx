@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <h1 className='bg-green-400 text-black rounded-xl p-4' >Tailwind Test</h1>
-      <Card />
-      <Card />
+      <Card userName='Tanjiro' btntxt='Click me'/>
+      <Card userName='Asta' btntxt='View me'/>
     </>
   )
 }

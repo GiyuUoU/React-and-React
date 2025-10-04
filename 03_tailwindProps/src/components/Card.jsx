@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Card() {
+function Card({userName="Chala ja bsdk" , btntxt="Button"}) {
     return (
         <div className="md:max-w-sm w-full p-6 rounded-xl shadow-xl bg-black border border-zinc-800 hover:border-white transition-all duration-300 hover:transform hover:scale-105 group">
       <div className="relative overflow-hidden rounded-lg mb-6">
@@ -16,7 +16,7 @@ function Card() {
 
       <div className="mb-4">
         <span className="inline-block px-3 py-1 text-xs font-medium tracking-wider uppercase bg-white text-black rounded-full mb-3">
-          Featured
+          {userName}
         </span>
         <h2 className="text-xl font-bold text-white mb-2 group-hover:text-gray-300 transition-colors duration-200">
           Modern Design Solutions
@@ -30,7 +30,7 @@ function Card() {
 
       <div className="flex items-center justify-between">
         <button className="px-4 py-2 bg-white hover:bg-gray-200 text-black text-sm rounded-lg transition-colors duration-200">
-          Learn More
+          {btntxt}
         </button>
         <div className="flex items-center space-x-1 text-xs text-gray-500">
           <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
