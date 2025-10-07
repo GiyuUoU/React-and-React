@@ -1,4 +1,4 @@
-import { useState , useCallback} from 'react'
+import { useState , useCallback , useEffect } from 'react'
 import './App.css'
 
 function App() {
@@ -12,15 +12,18 @@ function App() {
     let str = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
     if (numAllowed) str += "0123456789"
     if (charAllowed) str += "!@#$%^&*()_+?><:{}[]"
-    for (let i = 1 ; i <= array.lengtht ; i++) {
+    for (let i = 1 ; i <= length ; i++) {
       let char = Math.floor(Math.random() * str.length + 1)
-      pass = str.charAt(char)
+      pass += str.charAt(char)
       
     }
     setPassword(pass)
 
   }, [length , numAllowed , charAllowed , setPassword])
 
+  useEffect( () => {
+    passwordGenerator()
+  }, [length , numAllowed , charAllowed , passwordGenerator])
 
   return(
 
@@ -47,8 +50,28 @@ function App() {
          onChange={(e) => setLength(e.target.value)}
           />
            <label>Label : {length}</label>
-
       </div>
+      <div className='flex items-center gap-x-1'>
+        <input 
+        type="checkbox" 
+        defaultChecked={numAllowed}
+        id='numberInput'
+        onChange={(e) => { setnumAllowed((prev) => !prev);
+        }}
+        />
+        <label htmlFor="numberInput">Number</label>
+      </div>
+       <div className='flex items-center gap-x-1'>
+        <input 
+         type="checkbox" 
+         defaultChecked={charAllowed}
+         id='characterInput'
+         onChange={(e) => { setcharAllowed((prev) => !prev);
+         }}
+        />
+         <label htmlFor="numberInput">Characters</label>
+      </div>
+
     </div>
   </div>
 
